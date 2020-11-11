@@ -1,9 +1,11 @@
 class Team < ApplicationRecord
-    has_one :roster
     has_secure_password
+    has_one :roster
+    has_many :bots, through: :roster
     validates :team_name, uniqueness: true
     validates :email, uniqueness: true
-    validate :cannot_share_exisiting_team_name
+    # validates :password, presence: true
+    # validate :cannot_share_exisiting_team_name
 
     def cannot_share_exisiting_team_name
         team_names = Team.all.map do |team|

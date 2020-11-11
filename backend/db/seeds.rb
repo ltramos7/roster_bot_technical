@@ -10,7 +10,7 @@ team_list = []
     team_list << Team.create(
         team_name: Faker::Team.name,
         email: Faker::Internet.email,
-        password_digest: Faker::Internet.password
+        password: Faker::Internet.password
     )
 end
 
